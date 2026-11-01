@@ -19,14 +19,14 @@ const R806_UNVENTED: CodeRef = {
   confidence: 'VERIFIED',
 };
 const R905_GEN: CodeRef = {
-  ref: 'IRC R905 (roof coverings)',
-  note: 'Roof coverings must be installed per the code and the manufacturer instructions; each covering type has its own subsection, slope limits and underlayment rules. Edition-dependent.',
-  confidence: 'LIKELY',
+  ref: 'IRC R905 (requirements for roof coverings)',
+  note: 'Roof coverings must be applied per the applicable code provisions and the manufacturer installation instructions (R905.1); each covering type has its own subsection. Edition-dependent.',
+  confidence: 'VERIFIED',
 };
 const R905_ICE: CodeRef = {
-  ref: 'IRC R905.1.2 (ice barrier) and Table R301.2(1)',
+  ref: 'IRC R905.1.2 (ice barriers) and Table R301.2 (R301.2(1) in other editions)',
   note: 'Where the jurisdiction lists a history of ice forming along eaves, an ice barrier is required from the eave up past the exterior wall line. Whether it applies, and the exact distance, depends on local adoption and edition; confirm with the building official.',
-  confidence: 'LIKELY',
+  confidence: 'VERIFIED',
 };
 const R905_UNDERLAY: CodeRef = {
   ref: 'IRC R905.1.1',
@@ -36,12 +36,12 @@ const R905_UNDERLAY: CodeRef = {
 const R702_VAPOR: CodeRef = {
   ref: 'IRC R702.7 (vapor retarders)',
   note: 'Covers vapor retarder classes and where they are required; the roof-specific rule for cold climates should be checked against the adopted IRC/IECC edition. Section number is edition-dependent.',
-  confidence: 'LIKELY',
+  confidence: 'VERIFIED',
 };
 const SNOW: CodeRef = {
-  ref: 'Ground snow load / roof structural design',
+  ref: 'Ground snow load / roof structural design (see IRC R301.2.3 snow loads)',
   note: 'Design snow load comes from the adopted code and local ground-snow-load data; Interior Alaska values can be high and site-specific. Rafter, deck and fastener sizing needs a licensed engineer. No value is given here.',
-  confidence: 'UNVERIFIED',
+  confidence: 'LIKELY',
 };
 const MFR: CodeRef = {
   ref: 'Manufacturer installation instructions',
@@ -603,9 +603,9 @@ export const ROOF_INFO: Record<string, MaterialInfo> = {
       'Deep cold means large heat flow, so the target R-value is high; confirm the energy-code requirement with the building official and a designer. Thermal bridging at the rafters matters. Missing air sealing at 40 below can frost the cold side.',
     codeRefs: [
       {
-        ref: 'IECC roof/ceiling insulation requirements',
+        ref: 'IECC Table R402.1.3 (ceiling insulation by climate zone)',
         note: 'The energy code sets a minimum insulation level by climate zone; the value and edition used locally must be confirmed with the building official. No value is given here.',
-        confidence: 'UNVERIFIED',
+        confidence: 'LIKELY',
       },
       R806_CLEAR,
     ],
@@ -676,9 +676,9 @@ export const ROOF_INFO: Record<string, MaterialInfo> = {
       'Small leaks at 40 below can deposit large amounts of frost on the sheathing, which melts and wets the assembly in spring. Tapes and sealants have low-temperature application limits, so seal indoors in warm conditions where possible.',
     codeRefs: [
       {
-        ref: 'IECC air leakage / building thermal envelope',
+        ref: 'IECC R402.4 (air leakage)',
         note: 'The energy code requires a sealed building envelope, which often includes a blower-door test. Requirements and edition vary; confirm with the building official.',
-        confidence: 'LIKELY',
+        confidence: 'VERIFIED',
       },
     ],
   },

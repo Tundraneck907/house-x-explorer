@@ -3,17 +3,19 @@ import type { MaterialInfo, CodeRef } from './types';
 // General educational guidance only. Adopted code edition, design loads and
 // project-specific engineering must be confirmed with the local building
 // official and a licensed professional. Code refs are edition-dependent.
-// No code refs below were confirmed from a source this session.
+// Code refs below were checked against published 2021 IRC/IECC text (ICC, UpCodes,
+// BuildSpec, state/local code PDFs) for section number and topic; see confidence labels.
+// This file does not state which edition any jurisdiction has adopted.
 
 const ED = ' Section numbers are edition-dependent; confirm the adopted edition with the local building official.';
 
-const R_WRB: CodeRef = { ref: 'IRC R703 (exterior covering) / R703.1.1 water resistance', note: 'Exterior walls need a weather-resistant envelope with a water-resistive barrier and flashing.' + ED, confidence: 'LIKELY' };
-const R_VAPOR: CodeRef = { ref: 'IRC R702.7 (vapor retarders)', note: 'Sets when and what class of vapor retarder is required on the interior side of framed walls, with conditions for exterior insulation.' + ED, confidence: 'LIKELY' };
-const R_FRAME: CodeRef = { ref: 'IRC R602 (wood wall framing)', note: 'Prescriptive wall framing: stud size/spacing, plates, headers and fastening schedule. Alaska snow/wind/seismic conditions may push a project into engineered design.' + ED, confidence: 'LIKELY' };
-const R_IECC_AIR: CodeRef = { ref: 'IECC R402.4 (air leakage) and R402 envelope insulation tables', note: 'Energy code requires a continuous air barrier, sealed penetrations and tested air leakage. Required R-values depend on adopted edition and climate zone; confirm locally.' + ED, confidence: 'LIKELY' };
-const R_GYP: CodeRef = { ref: 'IRC R702.3 (gypsum board)', note: 'Covers gypsum thickness, framing spacing and fastening for interior finish.' + ED, confidence: 'LIKELY' };
-const R_FIRE: CodeRef = { ref: 'IRC R302 (fire-resistant construction)', note: 'Fire separation rules, e.g. between dwelling and garage or near property lines; may require specific gypsum assemblies.' + ED, confidence: 'LIKELY' };
-const R_FOAM: CodeRef = { ref: 'IRC R316 (foam plastics)', note: 'Foam plastic insulation generally needs a thermal barrier and has flame-spread limits. Mineral wool is not a foam plastic.' + ED, confidence: 'LIKELY' };
+const R_WRB: CodeRef = { ref: 'IRC R703 (exterior covering) / R703.1.1 water resistance', note: 'Exterior walls need a weather-resistant envelope with a water-resistive barrier (R703.2) and flashing (R703.4).' + ED, confidence: 'VERIFIED' };
+const R_VAPOR: CodeRef = { ref: 'IRC R702.7 (vapor retarders)', note: 'Vapor retarder section; covers vapor retarder requirements for framed walls, with conditions for exterior insulation.' + ED, confidence: 'VERIFIED' };
+const R_FRAME: CodeRef = { ref: 'IRC R602 (wood wall framing)', note: 'Prescriptive wall framing: stud size/spacing, plates, headers and fastening schedule. Local snow, wind and seismic conditions can push a project into engineered design; confirm with the local building official.' + ED, confidence: 'VERIFIED' };
+const R_IECC_AIR: CodeRef = { ref: 'IECC R402.4 (air leakage) and R402 envelope insulation tables', note: 'Energy code air leakage provisions include air barrier and insulation installation (Table R402.4.1.1) and testing (R402.4.1.2); insulation R-values are in Table R402.1.3. Values depend on adopted edition and climate zone; confirm locally.' + ED, confidence: 'VERIFIED' };
+const R_GYP: CodeRef = { ref: 'IRC R702.3 (gypsum board)', note: 'Gypsum board provisions: materials, wood framing and application for interior finish.' + ED, confidence: 'VERIFIED' };
+const R_FIRE: CodeRef = { ref: 'IRC R302 (fire-resistant construction)', note: 'Fire separation rules, e.g. between dwelling and garage or near property lines; may require specific gypsum assemblies.' + ED, confidence: 'VERIFIED' };
+const R_FOAM: CodeRef = { ref: 'IRC R316 (foam plastics)', note: 'Foam plastic insulation generally needs a thermal barrier and has flame-spread limits. Mineral wool is not a foam plastic.' + ED, confidence: 'VERIFIED' };
 
 export const WALLS_INFO: Record<string, MaterialInfo> = {
   'wall-siding': {
@@ -41,7 +43,7 @@ export const WALLS_INFO: Record<string, MaterialInfo> = {
     thermal: 'Adds essentially no insulation value. Its role is protective, and it keeps the insulated wall dry.',
     coldClimate: 'Frozen water in the pores of a saturated plank can cause freeze-thaw spalling, so keep it dry. Keep the bottom edge well above expected snow drifts and stacked snow; leave clearance at roofs. Cold boards are brittle and can crack when cut or nailed, and paint, caulk and primer have minimum application temperatures (check the product data sheet).',
     codeRefs: [
-      { ref: 'IRC R703.10 (fiber-cement siding)', note: 'Fiber-cement siding provisions, including clearance to grade and fastening per listing.' + ED, confidence: 'UNVERIFIED' },
+      { ref: 'IRC R703.10 (fiber-cement siding)', note: 'Fiber-cement panel (R703.10.1) and lap (R703.10.2) siding provisions; fastening per the code table and manufacturer instructions.' + ED, confidence: 'VERIFIED' },
       R_WRB,
     ],
   },
@@ -70,7 +72,7 @@ export const WALLS_INFO: Record<string, MaterialInfo> = {
     thermal: 'The air gap is not counted as insulation. Fasteners through the insulation create small thermal bridges.',
     coldClimate: 'Snow packed or drifted against the bottom of the wall can block the cavity inlet, so keep grade and snow clearance. Screens at vent openings can ice over in extreme cold. Wood shrinks in dry heated-season air, so allow movement.',
     codeRefs: [
-      { ref: 'IRC R703 (exterior covering), drainage / rainscreen language', note: 'Some editions describe drained wall assemblies and furring provisions; exact section depends on edition and siding type.' + ED, confidence: 'UNVERIFIED' },
+      { ref: 'IRC R703.1.1 (water resistance) / R703.2 (water-resistive barrier)', note: 'Exterior wall envelope must resist water; some editions include language on a means of draining water that enters the wall. Exact wording depends on edition and siding type.' + ED, confidence: 'VERIFIED' },
     ],
   },
 
@@ -175,7 +177,7 @@ export const WALLS_INFO: Record<string, MaterialInfo> = {
     moisture: 'Lumber should be kept dry on site and be close to service moisture content before being enclosed; sill plates on concrete need a capillary break and treatment.',
     thermal: 'Wood is a thermal bridge (poorer insulator than cavity insulation), which is why continuous exterior insulation helps. Framing factor matters for whole-wall R-value.',
     coldClimate: 'Wood shrinks as the building heats in winter and may cause drywall nail pops and cracks. Corners, headers and window edges are thermal-bridge hot spots where frost can appear on interior surfaces. Snow and wind loads for the area are project-specific.',
-    codeRefs: [R_FRAME, { ref: 'IRC R602.7 (headers)', note: 'Header sizing provisions for exterior and interior walls.' + ED, confidence: 'LIKELY' }],
+    codeRefs: [R_FRAME, { ref: 'IRC R602.7 (headers)', note: 'Headers section (R602.7), including single member headers; header sizing tables.' + ED, confidence: 'VERIFIED' }],
   },
 
   'wall-insulation': {
@@ -384,8 +386,8 @@ export const WALLS_INFO: Record<string, MaterialInfo> = {
     thermal: 'Fiberglass and vinyl conduct less heat than aluminum; U-factor and condensation resistance are rated for the full window, so use the NFRC label.',
     coldClimate: 'The frame and glass edge are the coldest interior surfaces, where frost and condensation appear first, especially with high indoor humidity. Fiberglass expands and contracts less than vinyl; vinyl can become brittle in extreme cold. Check the product rating for -40 service and ventilate to control humidity.',
     codeRefs: [
-      { ref: 'IECC R402.5 / fenestration U-factor and SHGC tables (edition-dependent)', note: 'Energy code sets maximum window U-factor. Required values depend on the adopted edition and climate zone.' + ED, confidence: 'UNVERIFIED' },
-      { ref: 'IRC R310 (emergency escape and rescue openings)', note: 'Bedrooms and basements need openings that meet size and sill-height rules.' + ED, confidence: 'LIKELY' },
+      { ref: 'IECC R402.5 (maximum fenestration U-factor and SHGC)', note: 'Energy code sets maximum window U-factor and SHGC. Required values depend on the adopted edition and climate zone.' + ED, confidence: 'VERIFIED' },
+      { ref: 'IRC R310 (emergency escape and rescue openings)', note: 'Emergency escape and rescue openings are required for sleeping rooms (R310.1) and must meet size rules; see R310.2 for dimensions.' + ED, confidence: 'VERIFIED' },
     ],
   },
 
@@ -413,7 +415,7 @@ export const WALLS_INFO: Record<string, MaterialInfo> = {
     thermal: 'Triple-pane low-e units have far lower U-factors than double-pane units. Real performance is shown on the NFRC label; verify.',
     coldClimate: 'Glass edge temperature drives interior condensation and frost, and the warm-edge spacer helps. Gas fill can leak out over time. In very cold climates, IGUs at high elevation can bow or break. Low-e gain choice affects passive solar in the low-sun Interior winter.',
     codeRefs: [
-      { ref: 'IRC R308 (glazing)', note: 'Safety glazing is required in hazardous locations such as doors, near doors and low panes.' + ED, confidence: 'LIKELY' },
+      { ref: 'IRC R308 (glazing)', note: 'Safety glazing is required in hazardous locations (R308.4), such as glazing in doors and within a set distance of doors.' + ED, confidence: 'VERIFIED' },
     ],
   },
 
@@ -441,7 +443,7 @@ export const WALLS_INFO: Record<string, MaterialInfo> = {
     thermal: 'Sealing and insulating the gap cuts heat loss and cold edges around the window.',
     coldClimate: 'Many tapes, sealants and foams have minimum application temperatures (some near or above freezing; some listed lower); check each data sheet, and work in warmed openings. Cold-cured products may not bond. Window edges are a thermal-bridge and frost-prone area, and snow drifting against sills puts extra water load on the pan.',
     codeRefs: [
-      { ref: 'IRC R703.4 (flashing)', note: 'Requires flashing at windows, doors and other openings to prevent water entering the wall.' + ED, confidence: 'LIKELY' },
+      { ref: 'IRC R703.4 (flashing)', note: 'Flashing section, including flashing installation at exterior window and door openings (R703.4.1).' + ED, confidence: 'VERIFIED' },
       R_FOAM,
       R_IECC_AIR,
     ],
@@ -471,7 +473,7 @@ export const WALLS_INFO: Record<string, MaterialInfo> = {
     thermal: 'Insulated slabs and thermal breaks reduce heat loss, but the door is still a weak point; verify the product U-factor label.',
     coldClimate: 'Frost forms on cold metal, hardware and thresholds; thermal-break and wood or fiberglass faces help. Gaskets can freeze or stiffen at -40. A vestibule or arctic entry helps reduce stack-effect losses. Snow drifts against doors, so plan for door swing and clearance.',
     codeRefs: [
-      { ref: 'IRC R311.2 (egress doors)', note: 'At least one egress door must meet minimum size and operation requirements.' + ED, confidence: 'LIKELY' },
+      { ref: 'IRC R311.2 (egress doors)', note: 'Egress door provisions: a dwelling needs a required exterior egress door meeting size and operation rules.' + ED, confidence: 'VERIFIED' },
       R_IECC_AIR,
     ],
   },
@@ -500,7 +502,7 @@ export const WALLS_INFO: Record<string, MaterialInfo> = {
     thermal: 'Not a thermal element, except between conditioned and unconditioned spaces, where an exterior-rated door is needed.',
     coldClimate: 'Doors between the house and an unheated garage or storage should be treated as exterior doors (insulated and weatherstripped). Seasonal humidity swings change wood size, so allow normal clearance gaps.',
     codeRefs: [
-      { ref: 'IRC R311.2 and R311.7 (egress door and means of egress)', note: 'Door widths and accessibility on required egress routes. Interior doors are mostly not code-limited beyond these.' + ED, confidence: 'UNVERIFIED' },
+      { ref: 'IRC R311.2 (egress door) and R311.6 (hallways)', note: 'Egress door and hallway provisions apply on required egress routes. Whether other interior doors have code limits depends on edition and use; confirm locally.' + ED, confidence: 'VERIFIED' },
     ],
   },
 };

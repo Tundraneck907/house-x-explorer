@@ -3,7 +3,8 @@ import type { MaterialInfo } from './types';
 // ILLUSTRATIVE content for a generic model house. Foundation design in Interior Alaska
 // (frost depth, permafrost, thaw settlement, pile/post vs. stem wall) is site-specific and
 // requires a geotechnical engineer and a licensed structural professional.
-// Code refs are edition-dependent; none were confirmed from a source this session.
+// Code refs were checked against published 2021 IRC/IECC text (section number and topic);
+// they remain edition-dependent, and no local adoption is claimed.
 
 const PRO =
   "Illustrative model only. Foundation type, depth, bearing and insulation in Interior Alaska depend on site soils and permafrost and must be designed by a geotechnical/structural professional.";
@@ -46,8 +47,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Interior Alaska has discontinuous permafrost and frost-susceptible silts; the same lot can differ in 50 feet. Heat from a house can thaw ice-rich ground and cause settlement, while frozen ground heaves. Work in deep cold is hard because frozen fill cannot be compacted, so winter placement needs a plan. Have a geotechnical engineer decide.",
     codeRefs: [
-      { ref: "IRC R401.3", note: "Surface drainage must direct water away from the foundation (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC R403.1", note: "Footings must bear on adequate soil; soil bearing and frost design come from engineering and local requirements.", confidence: 'LIKELY' },
+      { ref: "IRC R401.3", note: "Drainage section (R401.3): provisions for directing surface water away from the foundation; exact text is edition-dependent.", confidence: 'VERIFIED' },
+      { ref: "IRC R403.1", note: "General footing provisions: exterior walls are supported on footings designed to transmit loads to the soil, on undisturbed natural soil or engineered fill (2024/2025 text). Soil bearing and frost design come from engineering and local requirements.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -88,8 +89,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Frost heave and thaw settlement mean footing depth and insulation must follow a soils report; do not copy a depth from another house. Cold-weather concreting needs heated enclosures, blankets and mix-design guidance, and frozen ground must never receive concrete. Permafrost sites often use other foundation types entirely.",
     codeRefs: [
-      { ref: "IRC R403", note: "Footing requirements, including bearing, size and depth below frost; frost depth must come from local adoption and engineering (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC R402.2", note: "Concrete material and strength requirements for foundations (edition-dependent).", confidence: 'UNVERIFIED' },
+      { ref: "IRC R403 (footings)", note: "Footings section, including minimum size (R403.1.1), minimum depth (R403.1.4) and frost protection (R403.1.4.1); frost depth must come from local adoption and engineering (edition-dependent).", confidence: 'VERIFIED' },
+      { ref: "IRC R402.2", note: "Concrete section for foundations (title: Concrete); material and strength requirements are edition-dependent and set by design.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -130,8 +131,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "At -40 degrees F/C extremes the wall is exposed to freeze-thaw cycles, so protect the top and exterior from saturation. Frost heave can push on walls bearing in frost-susceptible soil, which is why site-specific design matters. Pour only with cold-weather plans; verify any adopted code and design with the local official and engineer.",
     codeRefs: [
-      { ref: "IRC R404.1", note: "Concrete and masonry foundation walls must be designed or follow prescriptive limits (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC R608 / R611", note: "Prescriptive concrete wall and ICF requirements; edition-dependent, may require engineering in high-seismic areas such as Alaska.", confidence: 'UNVERIFIED' },
+      { ref: "IRC R404.1", note: "Concrete and masonry foundation walls (R404.1); design is required or prescriptive limits apply (edition-dependent).", confidence: 'VERIFIED' },
+      { ref: "IRC R608 (2021 exterior concrete wall construction); concrete wall provisions renumbered R611 in a later edition", note: "Prescriptive concrete wall provisions (flat, waffle-grid, screen-grid) are in R608 in the 2021 IRC; a later-edition code commentary lists concrete wall construction under R611, so numbering differs by edition. Engineering review may be needed; confirm locally.", confidence: 'LIKELY' },
     ],
   },
 
@@ -172,8 +173,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Remove ice and snow from bars before the pour. Cold-weather placement needs protection so concrete does not freeze around the steel. Seismic design is a real factor in Alaska, so the anchorage schedule should come from the engineer, not generic details.",
     codeRefs: [
-      { ref: "IRC R403.1.6", note: "Sill plates must be anchored to the foundation with anchor bolts or approved anchors; spacing is code- and engineering-dependent (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC R404.1", note: "Reinforcement in foundation walls follows design or prescriptive tables.", confidence: 'LIKELY' },
+      { ref: "IRC R403.1.6", note: "Foundation anchorage: sill plates are anchored to the foundation; spacing and hardware are code- and engineering-dependent (edition-dependent).", confidence: 'VERIFIED' },
+      { ref: "IRC R404.1", note: "Foundation wall provisions (R404.1); reinforcement follows the design or prescriptive tables, confirm with the engineer.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -214,8 +215,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Most coatings have a minimum application temperature, and cold surfaces will not cure; verify the manufacturer's limit and plan heat or timing. Ice behind membranes and freeze-thaw can damage poorly attached sheets.",
     codeRefs: [
-      { ref: "IRC R406", note: "Foundation walls enclosing usable space must be damp-proofed; waterproofing is needed where high groundwater exists (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC R405", note: "Foundation drainage provisions.", confidence: 'LIKELY' },
+      { ref: "IRC R406 (dampproofing and waterproofing)", note: "Dampproofing (R406.1) and waterproofing (R406.2) of concrete and masonry foundation walls; which applies depends on edition and site conditions.", confidence: 'VERIFIED' },
+      { ref: "IRC R405 (foundation drainage)", note: "R405.1 requires drains around concrete or masonry foundations that retain earth and enclose habitable or usable space below grade, with an exception for well-drained soils; edition-dependent.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -256,8 +257,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Frost heave can load foam at the grade line. The designer may specify horizontal foam wings in some soils, but only a geotechnical professional can say if they are appropriate. Foam gets brittle in deep cold, so handle with care. Verify adhesive low-temp limits.",
     codeRefs: [
-      { ref: "IECC R402.2.8 / Table R402.1.3", note: "Foundation wall insulation requirement by climate zone; section numbers vary by edition.", confidence: 'UNVERIFIED' },
-      { ref: "IRC R316", note: "Foam plastic must be protected as required where exposed (edition-dependent).", confidence: 'LIKELY' },
+      { ref: "IECC R402.2.8 (basement walls) / Table R402.1.3", note: "Basement wall insulation is R402.2.8 in the 2021 IECC, with component R-values in Table R402.1.3; some state-amended texts number it differently (e.g. R402.2.9). Confirm the adopted edition.", confidence: 'VERIFIED' },
+      { ref: "IRC R316 (foam plastic)", note: "Foam plastic section: foam plastic must generally be separated from the building interior by a thermal barrier unless an exception applies (R316.4); edition-dependent.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -298,8 +299,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Where permafrost or very cold ground exists, a warm crawlspace could affect ground temperature, so this ties into the engineered design. Poly becomes stiff and brittle in the cold and may crack; install in warmer conditions where possible. Seasonal frost heave can lift and tear the sheet.",
     codeRefs: [
-      { ref: "IRC R408", note: "Under-floor space provisions, including vented and unvented crawlspaces; ground cover requirements depend on edition.", confidence: 'LIKELY' },
-      { ref: "IRC R408.3", note: "Unvented crawlspace option with a ground vapor retarder and conditioning requirements (edition-dependent).", confidence: 'LIKELY' },
+      { ref: "IRC R408 (under-floor space)", note: "Under-floor space provisions, including moisture control (R408.1), under-floor ventilation openings (R408.2) and unvented crawl spaces (R408.3); details are edition-dependent.", confidence: 'VERIFIED' },
+      { ref: "IRC R408.3 (unvented crawl space)", note: "Unvented crawl space option; its conditions (ground vapor retarder, conditioning) are edition-dependent.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -379,7 +380,7 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Panels shrink as the heated house dries out in winter, so leave gaps. Do not install on a frozen or wet subfloor. Adhesives often have minimum temperatures, so confirm before cold-season installs.",
     codeRefs: [
-      { ref: "IRC R503.3", note: "Underlayment requirements for wood floor finishes (edition-dependent).", confidence: 'UNVERIFIED' },
+      { ref: "Flooring manufacturer installation instructions", note: "IRC R503.3 is the particleboard subfloor section, not a general underlayment rule, so no numbered IRC section is cited here. Follow the finish-flooring and underlayment manufacturer requirements and confirm with the building official.", confidence: 'UNVERIFIED' },
     ],
   },
 
@@ -420,8 +421,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Snow and ice on an open deck are common in construction season, so clear them and let the deck dry before floor finishes. Adhesives have temperature limits; verify. Moisture from construction and from the heated house will be driven into the floor system.",
     codeRefs: [
-      { ref: "IRC R503.2", note: "Wood structural panel floor sheathing requirements and span ratings (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC Table R503.2.1.1(1)", note: "Panel thickness vs. joist spacing; table number varies by edition.", confidence: 'UNVERIFIED' },
+      { ref: "IRC R503.2 (wood structural panels, floors)", note: "Wood structural panel floor sheathing provisions, including identification and grade (R503.2.1) and allowable spans (R503.2.2); edition-dependent.", confidence: 'VERIFIED' },
+      { ref: "IRC Table R503.2.1.1(1)", note: "Allowable spans and loads for wood structural panels used as roof and subfloor sheathing and combination subfloor underlayment; table numbering is from the 2021 IRC and may differ in other editions.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -462,8 +463,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Snow loads, floor loads and any hanging belly weight must be considered by a professional. Moisture drive upward from a damp crawlspace or downward from interior humidity can affect the framing. Cold lumber is slippery and brittle, and OSB webs resist cracking best with care.",
     codeRefs: [
-      { ref: "IRC R502", note: "Wood floor framing, including engineered joists per manufacturer evaluation reports (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC R502.1.5 / R502.8", note: "Prefabricated I-joist requirements and cutting limits; numbering varies by edition.", confidence: 'UNVERIFIED' },
+      { ref: "IRC R502 (wood floor framing)", note: "Wood floor framing, including engineered joists per manufacturer evaluation reports (edition-dependent).", confidence: 'VERIFIED' },
+      { ref: "IRC R502.1.2 / R502.8", note: "R502.1.2 is prefabricated wood I-joists and R502.8 is cutting, drilling and notching in the 2021 IRC; numbering may differ in other editions, and I-joist hole limits come from the manufacturer.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -504,8 +505,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "With -40 degree air in a vented crawlspace, an incomplete floor insulation layer can freeze pipes and make floors cold. Pipes need to sit inside the insulated envelope or be protected. Vapor drive from the warm interior means air-sealing is the critical piece.",
     codeRefs: [
-      { ref: "IECC R402.2.7", note: "Floor insulation must be installed to maintain permanent contact with the underside of the subfloor (section number edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IECC Table R402.1.3", note: "Required R-values by climate zone; verify the adopted edition locally.", confidence: 'LIKELY' },
+      { ref: "IECC R402.2.7 (floors)", note: "Floor insulation must be installed to maintain permanent contact with the underside of the subfloor decking, with listed alternatives (2021 IECC); numbering differs in some amended texts.", confidence: 'VERIFIED' },
+      { ref: "IECC Table R402.1.3", note: "Minimum insulation R-values by climate zone and component; verify the adopted edition locally.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -546,7 +547,7 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Wind through a vented crawlspace in deep cold can strip heat from poorly sealed floors. Tapes and sealants have temperature limits; check the manufacturer. Condensation can form on the cold side if warm air leaks in.",
     codeRefs: [
-      { ref: "IECC R402.4", note: "Building thermal envelope must be durably sealed to limit air leakage (edition-dependent).", confidence: 'LIKELY' },
+      { ref: "IECC R402.4 (air leakage)", note: "Building thermal envelope air leakage provisions, including air barrier and insulation installation (Table R402.4.1.1) and testing (R402.4.1.2); edition-dependent.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -587,8 +588,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Frost heave or settlement may shift the sill, so the foundation design matters. Check the sealer's compression in cold. Concrete corner areas can be cold and condense if humid air reaches them.",
     codeRefs: [
-      { ref: "IRC R317.1", note: "Wood in contact with concrete or earth must be naturally durable or preservative-treated (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC R403.1.6", note: "Anchorage of sill plates to the foundation.", confidence: 'LIKELY' },
+      { ref: "IRC R317.1 (location required)", note: "Protection of wood and wood-based products against decay: naturally durable or preservative-treated wood is required in listed locations such as contact with concrete or ground (2021 IRC).", confidence: 'VERIFIED' },
+      { ref: "IRC R403.1.6", note: "Foundation anchorage: sill plates to the foundation (2021 IRC).", confidence: 'VERIFIED' },
     ],
   },
 
@@ -629,8 +630,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "At -40, stack effect and wind drive heavy air leakage and indoor humid air condenses or frosts inside cold cavities. Many tapes and sealants fail when applied cold, so use cold-rated products and warm surfaces. A blower-door test is the way to verify; tight houses need an HRV.",
     codeRefs: [
-      { ref: "IECC R402.4", note: "Air leakage provisions: building envelope must be sealed, with a list of required sealing locations (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IECC R402.4.1.2", note: "Testing of air leakage with a limit set by climate zone; edition-dependent, and the local jurisdiction may differ.", confidence: 'LIKELY' },
+      { ref: "IECC R402.4 (air leakage)", note: "Air leakage provisions: building envelope must be sealed with a list of sealing locations (Table R402.4.1.1); edition-dependent.", confidence: 'VERIFIED' },
+      { ref: "IECC R402.4.1.2 (testing)", note: "Testing of dwelling air leakage; the allowed limit depends on edition and compliance path, and the local jurisdiction may differ.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -671,8 +672,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Core frost at -40 is a real design issue; choose a unit rated for the lowest design temperature, with defrost control or preheat, and insulate ducts. Hoods can ice over, so make sure they stay clear of snow drifts and have the right height. Verify performance claims with the manufacturer.",
     codeRefs: [
-      { ref: "IRC M1507 / R303.4", note: "Whole-house mechanical ventilation requirements; section and applicability are edition-dependent.", confidence: 'LIKELY' },
-      { ref: "IECC R403.6", note: "Mechanical ventilation system requirements, with efficiency and fan rules (edition-dependent).", confidence: 'LIKELY' },
+      { ref: "IRC M1505.4 (whole-house mechanical ventilation system)", note: "Whole-house mechanical ventilation system requirements in the 2021 IRC; section applicability and numbering differ in other editions.", confidence: 'VERIFIED' },
+      { ref: "IECC R403.6 (mechanical ventilation)", note: "Mechanical ventilation systems must be tested and verified to provide the required flow rates; other provisions are edition-dependent.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -713,8 +714,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Wood expands and contracts across a very wide temperature range, so use flexible sealants rated for low temperatures. Snow piled against trim promotes rot, so keep clearance above the grade. Paint and caulk should not be applied below the manufacturer's minimum temperature.",
     codeRefs: [
-      { ref: "IRC R703", note: "Exterior covering requirements, including flashing and weather protection (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC R703.4", note: "Flashing at openings and wall details (numbering varies by edition).", confidence: 'LIKELY' },
+      { ref: "IRC R703 (exterior covering)", note: "Exterior covering requirements, including flashing and weather protection (edition-dependent).", confidence: 'VERIFIED' },
+      { ref: "IRC R703.4 (flashing)", note: "Flashing section, including flashing installation at exterior window and door openings (R703.4.1); numbering is from the 2021 IRC.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -755,8 +756,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Snow drifts and frost can block soffit vents, so keep them above likely snow depth. Heat leaks to the roof deck cause ice dams in Interior Alaska winters. Air sealing and insulation continuity at the eave are important, as is a cold vented roof design. Check what the roof manufacturer allows.",
     codeRefs: [
-      { ref: "IRC R806.1 / R806.2", note: "Attic and rafter space ventilation and minimum net free vent area (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC R905.2.8.5", note: "Drip edge provisions for asphalt shingles; metal roofing is covered by R905.10 and the maker (edition-dependent).", confidence: 'UNVERIFIED' },
+      { ref: "IRC R806.1 / R806.2", note: "R806.1 requires ventilation of enclosed attics and rafter spaces; R806.2 sets the minimum net free vent area with a conditional reduced ratio (2021 IRC). Confirm the adopted edition.", confidence: 'VERIFIED' },
+      { ref: "IRC R905.2.8.5 (drip edge)", note: "Drip edge provisions for shingle roofs in the 2021 IRC; metal roof panels are covered by R905.10 and the manufacturer.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -797,7 +798,7 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Gutters ice up and can tear off with sliding snow in Interior Alaska, and spring melt may flow while the downspouts are still frozen. Options include heat cable (energy cost and fire safety to check), no-gutter designs with wide overhangs and good grading, or drip-line gravel and drains. Choose a design based on roof type, snow load and local advice.",
     codeRefs: [
-      { ref: "IRC R801.3", note: "Roof drainage: gutters are required only in some conditions, with discharge away from the foundation (edition-dependent).", confidence: 'LIKELY' },
+      { ref: "IRC R801.3 (roof drainage)", note: "Roof drainage provisions; whether gutters are needed and how roof water is discharged depend on the adopted edition and site conditions.", confidence: 'VERIFIED' },
     ],
   },
 
@@ -838,8 +839,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Fine snow can blow through ridge vents in Interior Alaska, and frost may close the openings. Use a vent product with snow-resistant baffles, and make sure the ceiling is airtight so the vent is not overloaded with warm moist air. Some designs prefer unvented roofs; that choice needs an engineered approach.",
     codeRefs: [
-      { ref: "IRC R806.1", note: "Enclosed attics and rafter spaces must have cross ventilation, with minimum net free area (edition-dependent).", confidence: 'LIKELY' },
-      { ref: "IRC R806.5", note: "Unvented attic and rafter spaces: alternative to venting, with specific conditions (edition-dependent).", confidence: 'LIKELY' },
+      { ref: "IRC R806.1", note: "Enclosed attics and rafter spaces must have cross ventilation through openings protected against rain, snow and animals (2021 IRC).", confidence: 'VERIFIED' },
+      { ref: "IRC R806.5 (unvented attic assemblies)", note: "Unvented attic and rafter assemblies: an alternative to venting with specific conditions (edition-dependent).", confidence: 'VERIFIED' },
     ],
   },
 
@@ -880,8 +881,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Plumbing vents can frost shut in severe cold, so larger pipe sizes near the roof or an insulated stack may be needed; confirm the local plumbing code. Wall terminals can clog with frost or snow, so keep them above the drift line. Choose cold-rated boot materials and verify with the manufacturer.",
     codeRefs: [
-      { ref: "IRC P3103", note: "Vent termination: vent extension above the roof and frost-closure provisions (edition-dependent; check the adopted plumbing code).", confidence: 'LIKELY' },
-      { ref: "IRC M1501 / M1506", note: "Exhaust ducts must discharge to the outdoors, with termination spacing rules (edition-dependent).", confidence: 'LIKELY' },
+      { ref: "IRC P3103 (vent terminals)", note: "Vent terminals: vent pipes terminating outdoors, including roof extension (P3103.1.1) and frost closure (P3103.2); check the adopted plumbing code.", confidence: 'VERIFIED' },
+      { ref: "IRC M1501.1 (outdoor discharge)", note: "Exhaust systems must discharge to the outdoors; termination details are in the specific exhaust sections (edition-dependent).", confidence: 'VERIFIED' },
     ],
   },
 
@@ -922,8 +923,8 @@ export const OTHER_INFO: Record<string, MaterialInfo> = {
     coldClimate:
       "Roofs in Interior Alaska carry heavy snow for months, and snow guards keep the load on the roof, so the structure must be designed for the ground snow load as set by the local official. Large releases in spring can overwhelm guards, and the layout should come from a professional. Install clamps carefully in cold, when metal is stiff.",
     codeRefs: [
-      { ref: "IRC R301.2(1)", note: "Climatic design criteria including ground snow load, set by the local jurisdiction.", confidence: 'LIKELY' },
-      { ref: "IRC R905.10", note: "Metal roof panel installation requirements; snow retention is generally per manufacturer and engineer (edition-dependent).", confidence: 'UNVERIFIED' },
+      { ref: "IRC Table R301.2 (Table R301.2(1) in other editions)", note: "Climatic and geographic design criteria, including ground snow load, set by the local jurisdiction; the table is numbered R301.2 in the 2021 IRC and R301.2(1) in other editions.", confidence: 'VERIFIED' },
+      { ref: "IRC R905.10 (metal roof panels)", note: "Metal roof panel requirements, including deck requirements (R905.10.1); snow retention is not addressed here, so confirm with the manufacturer and an engineer.", confidence: 'VERIFIED' },
     ],
   },
 };
